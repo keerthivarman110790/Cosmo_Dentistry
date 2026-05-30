@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" onload="window.scrollTo(0, 0);">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: auto; }
   body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #fff; overflow-x: hidden; }
 
   /* TOPBAR */
@@ -342,6 +342,45 @@
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
 
+
+  /* WHY US TABS */
+  .whyus-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding-bottom: 0;
+  }
+  .tab-btn {
+    background: transparent;
+    border: none;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .tab-btn.active {
+    color: #fff;
+    border-bottom-color: #4ade80;
+  }
+  .tab-btn:hover {
+    color: #fff;
+  }
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
   /* PRICING TICKER */
   .pricing-ticker {
     background: #0a6e3f;
@@ -429,7 +468,7 @@
   .c-icon-wa { background: #25D366 !important; }
 </style>
 </head>
-<body>
+<body onload="window.scrollTo(0, 0);">
 
 <!-- TOPBAR -->
 <div class="topbar">
@@ -600,19 +639,38 @@
     <div class="sec-tag">Why Choose Us</div>
     <h2 class="sec-title" style="text-align:left">Your Friendly<br><span>Dental Clinic</span></h2>
     <p class="whyus-desc">At Cosmo Dentistry, we treat every patient like family. Our clinic is clean, calm, and welcoming — so you never have to worry about your visit. We use the latest equipment and give you honest advice at fair prices.</p>
-    <div class="whyus-features">
+    
+    <div class="whyus-tabs">
+      <button class="tab-btn active" onclick="showTab(event, 'facilities')">Facilities</button>
+      <button class="tab-btn" onclick="showTab(event, 'care')">Care &amp; Service</button>
+      <button class="tab-btn" onclick="showTab(event, 'experience')">Experience</button>
+    </div>
+
+    <div id="facilities" class="tab-content active">
       <div class="whyus-feat"><div class="feat-icon">✅</div><div class="feat-text">Modern X-ray &amp; scanning tools</div></div>
+      <div class="whyus-feat"><div class="feat-icon">🏥</div><div class="feat-text">Infection control &amp; sterilization</div></div>
+      <div class="whyus-feat"><div class="feat-icon">💎</div><div class="feat-text">Latest treatment techniques</div></div>
+      <div class="whyus-feat"><div class="feat-icon">📱</div><div class="feat-text">Easy online booking &amp; WhatsApp</div></div>
+      <div class="whyus-feat"><div class="feat-icon">🌙</div><div class="feat-text">9AM–8PM, open all days</div></div>
+      <div class="whyus-feat"><div class="feat-icon">🎁</div><div class="feat-text">Comfortable, calm environment</div></div>
+    </div>
+
+    <div id="care" class="tab-content">
       <div class="whyus-feat"><div class="feat-icon">😌</div><div class="feat-text">Gentle — no fear, no rush</div></div>
       <div class="whyus-feat"><div class="feat-icon">⚡</div><div class="feat-text">Same-day emergency help</div></div>
-      <div class="whyus-feat"><div class="feat-icon">💰</div><div class="feat-text">Clear, honest pricing</div></div>
       <div class="whyus-feat"><div class="feat-icon">👨‍👩‍👧</div><div class="feat-text">Safe &amp; friendly for kids</div></div>
-      <div class="whyus-feat"><div class="feat-icon">🌙</div><div class="feat-text">9AM–8PM, open all days</div></div>
-      <div class="whyus-feat"><div class="feat-icon">🎯</div><div class="feat-text">Experienced dentists with 14+ years</div></div>
-      <div class="whyus-feat"><div class="feat-icon">💎</div><div class="feat-text">Latest treatment techniques</div></div>
-      <div class="whyus-feat"><div class="feat-icon">🏥</div><div class="feat-text">Infection control &amp; sterilization</div></div>
-      <div class="whyus-feat"><div class="feat-icon">📱</div><div class="feat-text">Easy online booking &amp; WhatsApp</div></div>
-      <div class="whyus-feat"><div class="feat-icon">🎁</div><div class="feat-text">Loyalty rewards program</div></div>
+      <div class="whyus-feat"><div class="feat-icon">💰</div><div class="feat-text">Clear, honest pricing</div></div>
       <div class="whyus-feat"><div class="feat-icon">🤝</div><div class="feat-text">Flexible payment plans</div></div>
+      <div class="whyus-feat"><div class="feat-icon">❤️</div><div class="feat-text">Personalized treatment plans</div></div>
+    </div>
+
+    <div id="experience" class="tab-content">
+      <div class="whyus-feat"><div class="feat-icon">🎯</div><div class="feat-text">Experienced dentists with 14+ years</div></div>
+      <div class="whyus-feat"><div class="feat-icon">⭐</div><div class="feat-text">1500+ happy patients</div></div>
+      <div class="whyus-feat"><div class="feat-icon">🏆</div><div class="feat-text">Certified specialists</div></div>
+      <div class="whyus-feat"><div class="feat-icon">📚</div><div class="feat-text">Continuous training &amp; updates</div></div>
+      <div class="whyus-feat"><div class="feat-icon">🌟</div><div class="feat-text">5★ patient reviews</div></div>
+      <div class="whyus-feat"><div class="feat-icon">💪</div><div class="feat-text">Trusted in the community</div></div>
     </div>
   </div>
   <div style="display:none" style="transition-delay:0.2s">
@@ -675,6 +733,41 @@
       <p class="testi-text">"I have been visiting here for last few months. We have fixed tongue thrust crib for my daughter, the result is superb. Doctor is continuously following up, fixing issues and suggesting next steps. Best dental clinic for children.."</p>
       <div class="testi-name">Thirunavukkarasu M.</div>
       <div class="testi-detail">Kids Dental Care · 2023</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="sec-header reveal">
+    <div class="sec-tag">Our Team</div>
+    <h2 class="sec-title">Meet Our <span>Expert Dentists</span></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-avatar"><img src="doctor1.jpg" alt="Dr. Priya Mehta" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="team-info">
+        <div class="team-name">Dr. Priya Mehta</div>
+        <div class="team-role">Lead Dentist • BDS, MDS</div>
+        <div class="team-bio">With 14+ years of experience, Dr. Priya specializes in cosmetic dentistry and smile makeovers. Known for her gentle approach and attention to detail.</div>
+      </div>
+    </div>
+    <div class="team-card reveal" style="transition-delay:0.15s">
+      <div class="team-avatar"><img src="doctor2.jpg" alt="Dr. Rajan Nair" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="team-info">
+        <div class="team-name">Dr. Rajan Nair</div>
+        <div class="team-role">Orthodontist • BDS, Dip. Ortho</div>
+        <div class="team-bio">Specialist in braces and clear aligners. Dr. Rajan has straightened over 2,000 smiles and is certified in Invisalign treatment.</div>
+      </div>
+    </div>
+    <div class="team-card reveal" style="transition-delay:0.3s">
+      <div class="team-avatar"><img src="doctor3.jpg" alt="Dr. Aisha Fernandes" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="team-info">
+        <div class="team-name">Dr. Aisha Fernandes</div>
+        <div class="team-role">Implant Specialist • BDS, MDS</div>
+        <div class="team-bio">Expert in dental implants and full-mouth rehabilitation. Dr. Aisha brings precision and care to every complex case.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -804,5 +897,27 @@
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.526 5.845L.057 23.526a.5.5 0 00.608.676l5.92-1.553A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.805 9.805 0 01-5.002-1.368l-.358-.214-3.724.977.994-3.63-.234-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
   Chat with us
 </a>
+<script>
+function showTab(evt, tabName) {
+  const contents = document.querySelectorAll('.tab-content');
+  contents.forEach(el => el.classList.remove('active'));
+  
+  const buttons = document.querySelectorAll('.tab-btn');
+  buttons.forEach(el => el.classList.remove('active'));
+  
+  document.getElementById(tabName).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  window.scrollTo(0, 0);
+});
+window.addEventListener('load', function() {
+  window.scrollTo(0, 0);
+});
+// Force scroll on every navigation
+history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+</script>
 </body>
 </html>
