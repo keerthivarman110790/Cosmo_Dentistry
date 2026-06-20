@@ -466,6 +466,82 @@
   }
   .nav-whatsapp:hover { background: #1ebe5d !important; }
   .c-icon-wa { background: #25D366 !important; }
+
+  /* TEAM SECTION */
+  .team { padding: 120px 80px; background: #fff; }
+  .team .sec-tag { color: #0a6e3f; }
+  .team .sec-title { text-align: center; color: #1a1a2e; }
+  .team .sec-title span { color: #0a6e3f; }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 60px;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .team-card {
+    background: #f9fffe;
+    border: 1.5px solid #e0f0e8;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  
+  .team-card:hover {
+    box-shadow: 0 12px 32px rgba(10,110,63,0.15);
+    transform: translateY(-6px);
+  }
+  
+  .team-avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e8f5ee, #d4eddf);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #fff;
+    box-shadow: 0 6px 16px rgba(10,110,63,0.2);
+  }
+  
+  .team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .team-info { padding: 0; }
+  
+  .team-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+  }
+  
+  .team-role {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0a6e3f;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  
+  .team-bio {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #666;
+  }
 </style>
 </head>
 <body onload="window.scrollTo(0, 0);">
